@@ -6,9 +6,7 @@ BASE_PATH=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
 echo ${BASE_PATH}
 
 image="postgres:13.2"
-# echo "Pull docker image"
-# docker pull ${image}
-container=data-test-pg
+container=cdc-test-pg
 echo "Stop docker container ${container}"
 docker rm -v -f ${container}
 echo "Start docker container ${container}"
@@ -23,6 +21,6 @@ echo "Wait postgres to start"
 sleep 10
 
 echo "Create database"
-docker exec -it -u postgres ${container} psql -c 'CREATE DATABASE "data" OWNER=postgres;'
+docker exec -it -u postgres ${container} psql -c 'CREATE DATABASE "cdc" OWNER=postgres;'
 
 echo "Done"
