@@ -54,4 +54,8 @@ func main() {
 	if err = migrate(db); err != nil {
 		log.Fatalf("Failed to migrate database: %s", err)
 	}
+
+	if err = generateBook("book"); err != nil {
+		log.Fatalf("Failed to create book: %s", err)
+	}
 }

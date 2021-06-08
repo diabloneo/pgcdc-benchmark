@@ -19,6 +19,13 @@ type Page struct {
 	PageNum int64 `json:"page_num"`
 }
 
+// List of section types.
+const (
+	SectionTypeParagraph = "para"
+	SectionTypeGraph     = "graph"
+	SectionTypePicture   = "picture"
+)
+
 // Section table sections.
 type Section struct {
 	Model
