@@ -46,6 +46,15 @@ func (arg *ConnectionArg) String() string {
 	return fmt.Sprintf("%s:%d", arg.Host, arg.Port)
 }
 
+// Copy returns a copy.
+func (arg *ConnectionArg) Copy() *ConnectionArg {
+	if arg == nil {
+		return nil
+	}
+	newArg := *arg
+	return &newArg
+}
+
 // DNS returns DNS string used by database driver.
 func (arg *ConnectionArg) DSN() string {
 	if arg.SSLMode == "" {
